@@ -1,6 +1,6 @@
 from flask import Flask,request
 from flask_restful import Api, Resource, reqparse
-from app.models import db, BookModel
+from models import db, BookModel
 
 app = Flask(__name__)
 
