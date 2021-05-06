@@ -7,7 +7,7 @@ pipeline {
             }
             steps {
                 script {
-                    app = docker.build("ivandbello/train-schedule")
+                    app = docker.build("ivandbello/pythonapibookub")
                     app.inside {
                         sh 'echo $(curl localhost:8080)'
                     }
@@ -23,25 +23,6 @@ pipeline {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {
                         app.push("${env.BUILD_NUMBER}")
                         app.push("latest")
-                    }
-                }
-            }
-        }
-        stage('DeployToProduction') {
-            when {
-                branch 'main'
-            }
-            steps {
-                input 'Deploy to Production?'
-                milestone(1)
-                pwd
-                    script {
-                        try {
-                            pwd
-                        } catch (err) {
-                            echo: 'caught error: $err'
-                        }
-
                     }
                 }
             }
