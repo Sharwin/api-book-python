@@ -33,7 +33,7 @@ pipeline {
                 milestone(1)
                 sh '''
                     cd /home/ubuntu/
-                    echo $(kubectl apply -f pythonbookub.yaml)
+                    kubectl apply -f pythonbookub.yaml
                 '''
             }
         }
