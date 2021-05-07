@@ -34,11 +34,8 @@ pipeline {
             steps {
                 input 'Deploy to Production?'
                 milestone(1)
-                kubernetesDeploy(
-                    kubeconfigId: 'kubeconfig',
-                    configs: 'pythonkube.yml',
-                    enableConfigSubstitution: true
-                )
+                sh 'echo $(pwd)'
+                sh 'echo $(ll)'
             }
         }
     }
