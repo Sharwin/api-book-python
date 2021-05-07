@@ -33,7 +33,7 @@ pipeline {
                 milestone(1)
                 sh '''
                     cd /home/ubuntu/devops-academy-eks-jenkins/infra/
-                    terraform --target module.eks --auto-approve
+                    terraform apply --target module.eks --auto-approve
                     export KUBECONFIG=/home/ubuntu/devops-academy-eks-jenkins/infra/kubeconfig_kub-jenkins-infra-alpha-eks
                     cd /home/ubuntu/
                     echo $(kubectl apply -f pythonbookub.yaml)
