@@ -32,6 +32,7 @@ pipeline {
                 input 'Deploy to Production?'
                 milestone(1)
                 sh '''
+                    sudo su ubuntu
                     export KUBECONFIG=/home/ubuntu/devops-academy-eks-jenkins/infra/kubeconfig_kub-jenkins-infra-alpha-eks
                     cd /home/ubuntu/
                     echo $(kubectl apply -f pythonbookub.yaml)
