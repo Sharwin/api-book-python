@@ -1,0 +1,6 @@
+.gitignore
+Jenkinsfile
+pythonkube.yml
+readme.md
+.git
+.idea
