@@ -35,7 +35,7 @@ pipeline {
                 input 'Deploy to Production?'
                 milestone(1)
                 sh 'cd /home/ubuntu'
-                sh 'echo $(ll)'
+                sh 'echo $(ls)'
             }
         }
     }
