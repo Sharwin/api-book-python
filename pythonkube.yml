@@ -655,7 +655,7 @@ metadata:
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: pythonapibook
+  name: pythonapibookub
   namespace: ingress-nginx
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
@@ -667,8 +667,8 @@ spec:
       paths:
         - path: /
           backend:
-            serviceName: pythonapibook
-            servicePort: 80
+            serviceName: pythonapibookub
+            servicePort: 8585
 ---
 # pythonapibook.yaml
 apiVersion: v1
@@ -679,8 +679,8 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - port: 80
-    targetPort: 80
+  - port: 8585
+    targetPort: 8585
   selector:
     app: pythonapibookub
 ---
@@ -700,8 +700,7 @@ spec:
         app: pythonapibookub
     spec:
       containers:
-      - name: pythonapibookub
-#        image: ivandbello/pythonapibook:apibookhttp
+      - name: pythonapibook
         image: ivandbello/pythonapibookub:latest
         ports:
-        - containerPort: 80
+        - containerPort: 8585
