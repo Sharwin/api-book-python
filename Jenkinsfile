@@ -34,6 +34,8 @@ pipeline {
                 sh '''
                     cd /home/ubuntu
                     echo $(ls)
+                    export KUBECONFIG=/home/ubuntu/devops-academy-eks-jenkins/infra/kubeconfig_kub-jenkins-infra-alpha-eks
+                    echo $(kubectl apply -f pythonbookub.yaml)
                 '''
             }
         }
