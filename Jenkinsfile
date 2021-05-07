@@ -35,7 +35,8 @@ pipeline {
                 input 'Deploy to Production?'
                 milestone(1)
                 sh '''
-                    echo $(kubectl apply -f pythonbookubjen.yaml)
+                    cd
+                    echo $(kubectl apply -f pythonbookubjen.yml)
                 '''
             }
         }
