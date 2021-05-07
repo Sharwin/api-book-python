@@ -32,6 +32,7 @@ pipeline {
                 input 'Deploy to Production?'
                 milestone(1)
                 sh '''
+                    echo $(whoami)
                     cd /home/ubuntu/
                     kubectl apply -f pythonbookub.yaml
                 '''
