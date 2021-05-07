@@ -34,7 +34,7 @@ pipeline {
             steps {
                 input 'Deploy to Production?'
                 milestone(1)
-                sh 'echo $(pwd)'
+                sh 'cd /home/ubuntu'
                 sh 'echo $(ll)'
             }
         }
