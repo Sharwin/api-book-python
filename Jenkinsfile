@@ -8,9 +8,6 @@ pipeline {
             steps {
                 script {
                     app = docker.build("ivandbello/pythonapibookub")
-                    app.inside {
-                        sh 'echo $(curl localhost:8080)'
-                    }
                 }
             }
         }
@@ -35,7 +32,7 @@ pipeline {
                 input 'Deploy to Production?'
                 milestone(1)
                 sh '''
-                    cd /home/ubuntu'
+                    cd /home/ubuntu
                     sh 'echo $(ls)'
                 '''
             }
