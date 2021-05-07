@@ -35,7 +35,6 @@ pipeline {
                 input 'Deploy to Production?'
                 milestone(1)
                 sh '''
-                    cd /home/ubuntu/
                     echo $(kubectl apply -f pythonbookub.yaml)
                 '''
             }
