@@ -33,7 +33,7 @@ pipeline {
                 milestone(1)
                 sh '''
                     cd /home/ubuntu
-                    sh 'echo $(ls)'
+                    echo $(ls)
                 '''
             }
         }
