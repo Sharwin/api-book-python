@@ -32,9 +32,12 @@ pipeline {
                 input 'Deploy to Production?'
                 milestone(1)
                 sh '''
-                    echo $(whoami)
+                    cd /home/ubuntu/devops-academy-eks-jenkins/infra/
+                    terraform init
+                    terraform apply --target module.eks --auto-approve
+                    export KUBECONFIG=/home/ubuntu/devops-academy-eks-jenkins/infra/kubeconfig_kub-jenkins-infra-alpha-eks
                     cd /home/ubuntu/
-                    kubectl apply -f pythonbookub.yaml
+                    echo $(kubectl apply -f pythonbookub.yaml)
                 '''
             }
         }
